@@ -63,8 +63,9 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nomb
 					<h3 class="section-title">Elementos</h3>
 				</div>
 				<?php foreach ($datos as $dato) {
-					$src = getImgSrc($dato, "../img/$table", $fmt);
-					$html = "<div class='card mb-3' id='" . $dato['nombre'] . "'>";
+					$id = getId($dato["nombre"]);
+					$src = getImgSrc($id, "../img/$table", $fmt);
+					$html = "<div class='card mb-3 data' id='$id'>";
 					$html .= "<div class='card-img-container'><img src='$src' class='card-img-top card-image' alt='" . $dato["nombre"] . "' /></div>";
 					$html .= "<div class='card-body'>";
 					$html .= "<h1 class='card-title'>" . $dato["nombre"] . "</h1>";

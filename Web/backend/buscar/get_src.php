@@ -1,9 +1,10 @@
 <?php
 
 function getLi($object, $folder, $format, $href) {
-	$src = getImgSrc($object, $folder, $format);
+	$id = getId($object["nombre"]);
+	$src = getImgSrc($id, $folder, $format);
 	$html = "<li class='nav-item elements'>";
-	$html .= "<a class='nav-link d-flex justify-content-between align-items-center' href='$href" . $object['nombre'] . "'>";
+	$html .= "<a class='nav-link d-flex justify-content-between align-items-center' href='$href$id'>";
 	$html .= "<span>" . $object["nombre"] . "</span>";
 	$html .= "<img src='$src' />";
 	$html .= "</a>";
@@ -11,9 +12,13 @@ function getLi($object, $folder, $format, $href) {
 	return $html;
 }
 
-function getImgSrc($object, $folder, $format) {
-	$name = strtolower(str_replace("'", "", $object["nombre"]));
+/**
+ * $name -> result of call getId with the property name of the object (kin, nahual, uinal, energia)
+ */
+function getImgSrc($name, $folder, $format) {
 	return "$folder/$name.$format";
 }
 
-?>
+function getId($name) {
+	return strtolower(str_replace("'", "", $name));
+}

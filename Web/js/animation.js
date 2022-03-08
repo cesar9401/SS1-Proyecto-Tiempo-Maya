@@ -1,6 +1,7 @@
 const elements = document.querySelectorAll(".elements");
 const cards = document.querySelectorAll("div.data");
 const nahual = document.querySelector(".easyimage.easyimage-full img");
+const imgs = document.querySelectorAll("img.index-img");
 
 function addAnimation(e) {
 	const img = e.target.querySelector("img");
@@ -45,6 +46,18 @@ cards.forEach((card) => card.addEventListener("mouseenter", addCardAnimation));
 
 cards.forEach((card) =>
 	card.addEventListener("mouseleave", removeCardAnimation)
+);
+
+imgs.forEach((img) =>
+	img.addEventListener("mouseenter", () => {
+		img.classList.add("active");
+	})
+);
+
+imgs.forEach((img) =>
+	img.addEventListener("mouseleave", () => {
+		img.classList.remove("active");
+	})
 );
 
 if (nahual) {

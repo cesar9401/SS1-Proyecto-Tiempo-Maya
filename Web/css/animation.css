@@ -67,3 +67,19 @@ div.data.active {
 .easyimage.easyimage-full {
 	text-align: center;
 }
+
+img.index-img {
+	width: 200px;
+	height: 200px;
+	background-color: transparent;
+}
+
+.info {
+	background: rgba(63, 64, 66, 0.7);
+}
+
+img.index-img.active {
+	box-shadow: rgba(63, 64, 66, 0.7) 0px 8px 24px;
+	transform: translateY(-0.50em);
+	transition: 0.3s;
+}

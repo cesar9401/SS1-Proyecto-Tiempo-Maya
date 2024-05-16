@@ -16,6 +16,21 @@ $cholquij = $nahual . " " . strval($energia);
 $img1 = strtolower(str_replace("'", "", preg_replace("/([\']|\w+) (\d+)/", '${1}', $haab)));
 $img2 = strtolower(str_replace("'", "", preg_replace("/([\']+|\w+) (\d+)/", '${1}', $cholquij)));
 
+$hour = date('H');
+$fondo = '/img/FondoDia.jpg';
+if ($hour >= 6 && $hour < 12) 
+{
+    $fondo = '/img/FondoDia.jpg';
+} 
+elseif ($hour >= 12 && $hour < 18) 
+{
+    $fondo = '/img/FondoDia.jpg';
+} 
+else 
+{
+    $fondo = '/img/FondoNoche.jpg';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +51,7 @@ $img2 = strtolower(str_replace("'", "", preg_replace("/([\']+|\w+) (\d+)/", '${1
 
 	<?php include "NavBar.php" ?>
 	<div>
-		<section id="inicio">
+		<section id="inicio" style="background: url(<?php echo $fondo; ?>) top center;">
 			<div id="inicioContainer" class="inicio-container">
 				<div class="row">
 					<div class="col text-center">
@@ -47,7 +62,7 @@ $img2 = strtolower(str_replace("'", "", preg_replace("/([\']+|\w+) (\d+)/", '${1
 				<div class="row my-4">
 					<div class="col">
 						<?php
-							echo "<img src='img/uinal/$img1.svg' alt='imagen de $img1' class='index-img' />";
+							echo "<img src='img/uinal/$img1.png' alt='imagen de $img1' class='index-img' />";
 							echo "<h4 class='text-white text-center mt-4 info'>$haab</h4>";
 						?>
 					</div>

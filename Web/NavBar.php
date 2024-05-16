@@ -54,7 +54,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 										<div div style="width: 200px; height: 400px; overflow-y: scroll;">
 											<?php if (is_array($uinalesNav) || is_object($uinalesNav)) {
 												foreach ($uinalesNav as $uinal) {
-													echo getLi($uinal, "img/uinal", "svg", "models/paginaModeloElemento.php?elemento=uinal#");
+													echo getLi($uinal, "img/uinal", "png", "models/paginaModeloElemento.php?elemento=uinal#");
 												}
 											} ?>
 									</ul>

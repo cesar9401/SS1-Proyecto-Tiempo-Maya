@@ -107,7 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 #inicio {
   width: 100%;
   height: 100vh;
-  background: url(../img/fondo.png) top center;
+  
   background-size: cover;
   position: relative;
 }
@@ -400,3 +400,89 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 13px;
   color: #ccc;
 }
+
+/* Estilos para el contenedor de tarjetas */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta el tamaño mínimo de la tarjeta */
+  gap: 10px; /* Espacio entre tarjetas */
+  padding: 20px;
+}
+
+/* Estilos para las tarjetas */
+.card {
+  display: flex;
+  flex-direction: column; /* Organiza el contenido de la tarjeta verticalmente */
+  align-items: center; /* Centra el contenido horizontalmente */
+  justify-content: center; /* Centra el contenido verticalmente */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+  text-align: center; /* Asegura que todo el texto esté centrado */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Efecto al pasar el mouse */
+}
+
+.card-img-top {
+  width: 100px; /* Ancho fijo para las imágenes */
+  height: 100px; /* Altura fija para las imágenes */
+  object-fit: cover;
+  border-radius: 50%; /* Hace las imágenes circulares */
+  margin-bottom: 15px; /* Espacio entre la imagen y el texto */
+}
+
+.card-title {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #666;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.highlighted {
+  border: 2px solid green; /* Cambia como prefieras */
+}
+
+

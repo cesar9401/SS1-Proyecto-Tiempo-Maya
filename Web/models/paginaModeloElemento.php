@@ -26,8 +26,10 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nomb
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<?php include "../blocks/bloquesCss.html" ?>
 	<link rel="stylesheet" href="../css/estilo.css?v=<?php echo (rand()); ?>" />
+	<link rel="stylesheet" href="../css/estiloAdmin.css?v=<?php echo (rand()); ?>" />
 	<link rel="stylesheet" href="../css/paginaModelo.css?v=<?php echo (rand()); ?>" />
 	<link rel="stylesheet" href="../css/animation.css" />
+	<link rel="stylesheet" href="../css/index.css?v=<?php echo (rand()); ?>" />
 
 </head>
 <?php include "../NavBar2.php" ?>

@@ -57,6 +57,12 @@ $img2 = strtolower(str_replace("'", "", preg_replace("/([\']+|\w+) (\d+)/", '${1
 							echo "<h4 class='text-white text-center mt-4 info'>$cholquij</h4>";
 						?>
 					</div>
+					<div class="col">
+						<?php
+							echo "<img src='img/calendario.png' alt='imagen de calendario' class='index-img' />";
+							echo "<h4 class='text-white text-center mt-4 info'>$cuenta_larga</h4>";
+						?>
+					</div>
 				</div>
 
 				<div class="row">

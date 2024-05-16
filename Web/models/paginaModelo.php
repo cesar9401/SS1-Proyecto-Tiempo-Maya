@@ -4,7 +4,8 @@
 $conn = include '../conexion/conexion.php';
 $pagina = $_GET['pagina'];
 $informacion = $conn->query("SELECT htmlCodigo,seccion,nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' order by orden;");
-$secciones = $conn->query("SELECT seccion FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' group by seccion  order by orden;");
+$secciones = $conn->query("SELECT seccion FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' group by seccion order by orden;");
+$elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
 $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
 
 
@@ -21,8 +22,11 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<?php include "../blocks/bloquesCss.html" ?>
 	<link rel="stylesheet" href="../css/estilo.css?v=<?php echo (rand()); ?>" />
+	<link rel="stylesheet" href="../css/estiloAdmin.css?v=<?php echo (rand()); ?>" />
 	<link rel="stylesheet" href="../css/paginaModelo.css?v=<?php echo (rand()); ?>" />
 	<link rel="stylesheet" href="../css/animation.css" />
+	<link rel="stylesheet" href="../css/index.css?v=<?php echo (rand()); ?>" />
+
 
 </head>
 <?php include "../NavBar2.php" ?>
@@ -75,7 +79,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
 
 	?>
 
-	<?php include "../blocks/bloquesJs.html" ?>
+	<?php include "../blocks/bloquesJs1.html" ?>
 	<script src="../js/animation.js"></script>
 
 </body>

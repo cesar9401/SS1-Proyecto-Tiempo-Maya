@@ -1,6 +1,7 @@
 
 #formulario {
-    background: rgba(63, 64, 66, 0.7);
+    /* background: rgba(63, 64, 66, 0.7); */
+    background: rgba(101, 103, 105, 0.7);
     transition: 0.5s;
     width: 50%;
 }
@@ -53,8 +54,9 @@
     .form-label{
         font-size: 15px;
     }
+
     #formulario{
-        width: 40%;
+        width: 100%;
     }
     
   }
@@ -68,4 +70,70 @@
     .loginfixed {
         margin-top: 75px;
     }
+}
+
+.info-container {
+    margin: 25px;
+    height: 325px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+    gap: 25px;
+    overflow: auto;
+}
+
+#details {
+    margin: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.infografia-details {
+    background: url("../img/calendarioHaabGrande.jpg") top center;
+    width: 40%;
+    height: auto;
+}
+
+.cruz-grid {
+    display: grid;
+    margin: 25px;
+    grid-template-columns: repeat(3, minmax(min(100%, 250px), 1fr));
+    grid-template-rows: repeat(3, minmax(min(100%, 250px), 1fr));
+    gap: 25px;
+}
+
+.figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cruz-nacimiento {
+    /* background-color: red; */
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.cruz-concepcion {
+    /* background-color: red; */
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.cruz-destino {
+    /* background-color: red; */
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+.cruz-izquierdo {
+    /* background-color: red; */
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.cruz-derecho {
+    /* background-color: red; */
+    grid-column: 3/4;
+    grid-row: 2/3;
 }

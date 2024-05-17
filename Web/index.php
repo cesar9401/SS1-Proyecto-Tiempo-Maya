@@ -55,18 +55,23 @@ else
 			<div id="inicioContainer" class="inicio-container">
 				<div class="row">
 					<div class="col text-center">
-						<h1><br><br>Bienvenido al Tiempo Maya</h1>
+						<h1>
+							<div class="effect">
+								<span>Bienvenido al Tiempo  Maya</span>
+								<span>Bienvenido al Tiempo  Maya</span>
+							</div>
+						</h1>
 					</div>
 				</div>
 
 				<div class="row my-4">
-					<div class="col">
+					<div class="col principal" style="">
 						<?php
 							echo "<img src='img/uinal/$img1.png' alt='imagen de $img1' class='index-img' />";
-							echo "<h4 class='text-white text-center mt-4 info'>$haab</h4>";
+							echo "<h4 class='text-white text-center mt-4 info w-full'>$haab</h4>";
 						?>
 					</div>
-					<div class="col">
+					<div class="col principal">
 						<?php
 							echo "<img src='img/nahual/$img2.png' alt='imagen de $img2' class='index-img' />";
 							echo "<h4 class='text-white text-center mt-4 info'>$cholquij</h4>";
@@ -76,11 +81,25 @@ else
 
 				<div class="row">
 					<div class="col text-center">
-						<div id='formulario' style="padding: 15px; width: auto;">
-							<h5 style="color: whitesmoke;">Calendario Haab : <?php echo isset($haab) ? $haab : ''; ?></h5>
-							<h5 style="color: whitesmoke;">Calendario Cholquij : <?php echo isset($cholquij) ? $cholquij : ''; ?></h5>
-							<h5 style="color: whitesmoke;">Cuenta Larga : <?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></h5>
-							<label style="color: whitesmoke;"><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></label>
+						<div class='principal' style="padding: 15px; width: auto;">
+							<table class="tabla-info">
+								<tr>
+									<th><i class='fas fa-arrow-right' style="font-size: 0.55rem; color:rgb(248, 248, 96)"></i> Calendario Haab</th>
+									<td><?php echo isset($haab) ? $haab : ''; ?></td>
+								</tr>
+								<tr>
+									<th><i class='fas fa-arrow-right' style="font-size: 0.55rem; color:rgb(248, 248, 96)"></i> Calendario Cholquij</th>
+									<td><?php echo isset($cholquij) ? $cholquij : ''; ?></td>
+								</tr>
+								<tr>
+									<th><i class='fas fa-arrow-right' style="font-size: 0.55rem; color:rgb(248, 248, 96)"></i> Cuenta Larga</th>
+									<td><?php echo isset($cuenta_larga) ? $cuenta_larga : ''; ?></td>
+								</tr>
+								<tr>
+									<th><i class='fas fa-arrow-right' style="font-size: 0.55rem; color:rgb(248, 248, 96)"></i> Fecha a Consultar</th>
+									<td><?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?></td>
+								</tr>
+							</table>
 						</div>
 					</div>
 				</div>
@@ -89,7 +108,21 @@ else
 	</div>
 
 	<?php include "blocks/bloquesJs1.html" ?>
-	<script src="js/animation.js"></script>
+    <script src="https://cdn.skypack.dev/spltjs@1.0.8"></script>
+    <script src="https://cdn.skypack.dev/animejs@3.2.1"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            splt({});
+
+            anime({
+                targets: '.char',
+                loop: true,
+                direction: 'alternate',
+                translateY: [0, -20],
+                delay: anime.stagger(25),
+            });
+        });
+    </script>
 
 </body>
 

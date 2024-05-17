@@ -55,7 +55,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
 				foreach ($elementos as $elemento) {
 					if ($elemento['nombre'] != 'Uayeb' && $elemento['nombre'] == $info['nombre']) {
 						$tabla = strtolower($elemento['nombre']);
-						$elementosEl = $conn->query("SELECT nombre FROM tiempo_maya." . $tabla . ";");
+						$elementosEl = $conn->query("SELECT nombre FROM tiempomaya." . $tabla . ";");
 						$stringPrint .= "<ul>";
 						foreach ($elementosEl as $el) {
 							if ($el['nombre'] == "Informacion") {

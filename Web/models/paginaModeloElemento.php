@@ -76,7 +76,7 @@ function getAudioSrc($nombre, $tabla) {
             echo "<img src='$src' class='card-img-top' alt='{$dato["nombre"]}'>";
             echo "<h1 class='card-title'>{$dato["nombre"]}</h1>";
             echo "<p class='card-text'><strong>Significado:</strong> {$dato["significado"]}</p>";
-            echo "<button onclick='playAudio(\"$audioSrc\"); event.stopPropagation();'><i class='fas fa-play'></i></button>";
+            echo "<button id='playBtn-$id' class='play-btn' onclick='togglePlayPause(this, \"$audioSrc\"); event.stopPropagation();'><i class='fas fa-play'></i></button>";
             echo "</div>";
             echo "<div id='modal-$id' class='modal'>";
             echo "<div class='modal-content'>";
@@ -121,11 +121,61 @@ function playAudio(src) {
 
     <?php include "../blocks/bloquesJs.html" ?>
     <script src="../js/animation.js"></script>
+
     <script>
         function playAudio(audioSrc) {
             var audio = new Audio(audioSrc);
             audio.play();
         }
+
+        window.onload = function() {
+            highlightCard(); 
+        };
+
+
+        function highlightCard() {
+            const hash = window.location.hash.substring(1);  
+
+            const highlighted = document.querySelector('.highlighted');
+            if (highlighted) {
+                highlighted.classList.remove('highlighted');
+            }
+
+        
+            const card = document.getElementById('card-' + hash);
+            if (card) {
+                card.classList.add('highlighted');  
+                card.scrollIntoView({behavior: 'smooth', block: 'center'});  
+            }
+        }
+
+        window.addEventListener('hashchange', highlightCard);
+
+        function togglePlayPause(button, src) {
+        const icon = button.children[0]; 
+            if (!button.dataset.playing || button.dataset.playing === "false") {
+                // Si el audio no está reproduciéndose, reproduce
+                if (!button.audio) {
+                    button.audio = new Audio(src);
+                    button.audio.addEventListener('ended', () => {
+                        icon.classList.remove('fa-pause');
+                        icon.classList.add('fa-play');
+                        button.dataset.playing = "false";
+                    });
+                }
+                button.audio.play();
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+                button.dataset.playing = "true";
+            } else {
+                // Si el audio está reproduciéndose, pausa
+                button.audio.pause();
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+                button.dataset.playing = "false";
+            }
+        }
+
     </script>
     
 </body>

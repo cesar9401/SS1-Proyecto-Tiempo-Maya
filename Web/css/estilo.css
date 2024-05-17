@@ -149,7 +149,11 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   color: #fff;
 }
-
+@media (max-width: 768px) {
+  #inicio .inicio-container{
+    padding-top: 190px;
+  }
+}
 @media (max-width: 994px) {
   #inicio h1 {
     font-size: 28px;
@@ -482,7 +486,192 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .highlighted {
-  border: 2px solid green; /* Cambia como prefieras */
+  border: 3px solid limegreen; 
+  box-shadow: 0 0 8px limegreen;
+  animation: pulseBorder 1s infinite; 
 }
 
+@keyframes pulseBorder {
+  0% {
+      box-shadow: 0 0 8px limegreen;
+  }
+  50% {
+      box-shadow: 0 0 18px limegreen, 0 0 20px limegreen inset;
+  }
+  100% {
+      box-shadow: 0 0 8px limegreen;
+  }
+}
+
+.play-btn {
+  border: none;
+  background-color: limegreen;
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.play-btn:hover {
+  background-color: darkgreen;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.play-btn:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.rueda-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Se ajusta al tamaño de la ventana */
+  max-width: 1200px; /* Ajusta esto según el tamaño que necesitas */
+}
+
+.rueda-movimiento {
+  position: relative;
+  width: 70%; /* Ajusta este valor según necesites */
+  height: 600px; /* Ajusta según el tamaño de tus imágenes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rueda {
+  width: 100%; /* Asegura que las imágenes cubran el contenedor */
+  height: auto;
+  transform-origin: center;
+}
+
+.haab {
+  width: 30%; /* Ajusta según el tamaño real de la imagen HAAB */
+}
+
+.pequena, .mediana {
+  position: absolute;
+}
+
+.pequena {
+  width: 50%; /* Tamaño relativo dentro del contenedor */
+  left: 33%; /* Ajusta este valor para mover la rueda hacia la izquierda */
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(0deg); /* Centrado ajustado */
+  animation: rotate 60s linear infinite;
+}
+
+.titulo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: #e20000;
+  text-align: center;
+}
+
+.principal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  align-items: center;
+  margin: 4px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tabla-info {
+  text-align: left;
+}
+
+.tabla-info th {
+  color: rgb(248, 248, 96);
+}
+
+.tabla-info td {
+  color: #fff;
+  padding-left: 8px;
+}
+
+h1 {
+  block-size: 1em;
+  margin-inline: auto;
+  width: max-content;
+  font-size: 3rem;
+  overflow: hidden;
+
+  &:hover .effect {
+    transform: rotateX(90deg);
+  }
+}
+
+.effect {
+  transform-style: preserve-3d;
+  transition: transform 300ms ease-in-out;
+  display: grid;
+  & > * {
+    grid-area: 1 / 1;
+  }
+
+  span {
+    &:nth-child(1) {
+      transform: translateZ(0.5em);
+    }
+    &:nth-child(2) {
+      transform: rotateX(-90deg) translateZ(0.5em);
+    }
+  }
+}
+
+.mediana {
+  animation: rotate 120s linear infinite reverse;
+}
+
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.infografia-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-segmento {
+  text-align: center;
+}
+
+.info-segmento h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+.info-segmento p {
+  color: #666;
+  font-size: 16px;
+}
+
+.info-segmento img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
 

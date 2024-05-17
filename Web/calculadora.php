@@ -26,6 +26,11 @@ $des_img = strtolower(str_replace("'", "", preg_replace("/([\']+|\w+) (\d+)/", '
 $izq_img = strtolower(str_replace("'", "", preg_replace("/([\']+|\w+) (\d+)/", '${1}', $cruz_info['izquierdo'])));
 $der_img = strtolower(str_replace("'", "", preg_replace("/([\']+|\w+) (\d+)/", '${1}', $cruz_info['derecho'])));
 
+$fuerza = $energia;
+$energia_info = getEnergiaInfo($fuerza, $conn);
+$nahual_significado = getNahualSignificado($nahual, $conn);
+$animal = getAnimalGuia($nahual, $conn);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -81,11 +86,51 @@ $der_img = strtolower(str_replace("'", "", preg_replace("/([\']+|\w+) (\d+)/", '
 						</div>
 					</div>
 				</div>
+				<img class="row-img" src="./img/flecha.png" />
 			</div>
 		</section>
 		<section id="details">
 			<div>
 				<h2>Infografía</h2>
+				<div class="infografia-grid">
+					<div>
+						<h1 class="infografia-text">Tu fuerza</h1>
+						<?php
+							echo "<img src=\"./img/numeros/$fuerza.png\" class='index-img'/>"
+						?>
+					</div>
+					<div>
+						<h1 class="infografia-text">Tu nahual</h1>
+						<?php
+							echo "<img src=\"img/nahual/$nac_img.png\" alt=\"imagen de " . $nahual . "\" class='index-img' />"
+						?>
+					</div>
+					<div>
+						<h1 class="infografia-text">Fuerza en idioma maya</h1>
+						<?php
+							echo "<h2 class=\"infografia-text\">". $energia_info['nombre'] ."</h2>"
+						?>
+					</div>
+
+					<div>
+						<h1 class="infografia-text">Significado</h1>
+						<?php
+							echo "<h2 class=\"infografia-text\">". $nahual_significado ."</h2>"
+						?>
+					</div>
+					<div>
+						<h1 class="infografia-text">Capacidades</h1>
+						<?php
+							echo "<h2 class=\"infografia-text\">". $energia_info['significado'] ."</h2>"
+						?>
+					</div>
+					<div>
+						<h1 class="infografia-text">Animal guía</h1>
+						<?php
+							echo "<h2 class=\"infografia-text\">". $animal ."</h2>"
+						?>
+					</div>
+				</div>
 			</div>
 			<div>
 				<?php

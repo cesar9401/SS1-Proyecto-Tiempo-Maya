@@ -1,6 +1,7 @@
 
 #formulario {
     /* background: rgba(63, 64, 66, 0.7); */
+    margin-top: 50px;
     background: rgba(101, 103, 105, 0.7);
     transition: 0.5s;
     width: 50%;
@@ -56,6 +57,7 @@
     }
 
     #formulario{
+
         width: 100%;
     }
     
@@ -81,6 +83,11 @@
     overflow: auto;
 }
 
+.row-img {
+    margin-top: 50px;
+    width: 5vh;
+}
+
 #details {
     margin: 50px;
     display: grid;
@@ -88,10 +95,20 @@
     gap: 50px;
 }
 
-.infografia-details {
-    background: url("../img/calendarioHaabGrande.jpg") top center;
-    width: 40%;
-    height: auto;
+.infografia-grid {
+    background: url("../img/prueba.jpg") top center;
+    /* opacity: 0.75; */
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 20px;
+    border-style: solid;
+}
+
+.infografia-text {
+    font-weight: bolder;
+    color: black
 }
 
 .cruz-grid {

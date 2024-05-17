@@ -1156,6 +1156,7 @@ CREATE TABLE `cruz` (
 	`destino` int NOT NULL,
 	`concepcion` int DEFAULT NULL,
 	PRIMARY KEY(`nacimiento`),
+	FOREIGN KEY (`nacimiento`) REFERENCES `nahual`(`idweb`),
 	FOREIGN KEY (`izquierdo`) REFERENCES `nahual`(`idweb`),
 	FOREIGN KEY (`derecho`) REFERENCES `nahual`(`idweb`),
 	FOREIGN KEY (`destino`) REFERENCES `nahual`(`idweb`),
@@ -1310,5 +1311,100 @@ VALUES (
 		7,
 		19
 	);
+
+CREATE TABLE `animal_guia` (
+	`idweb_nahual` int DEFAULT NULL,
+	`nombre` varchar(255) NOT NULL,
+	PRIMARY KEY(`idweb_nahual`),
+	FOREIGN KEY (`idweb_nahual`) REFERENCES `nahual`(`idweb`)
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+INSERT INTO 
+`animal_guia` (
+		`idweb_nahual`,
+		`nombre`
+	)
+VALUES (
+		14,
+		'El Tiburón'
+	),
+	(
+		15,
+		'El Perro'
+	),
+	(
+		16,
+		'El Mono'
+	),
+	(
+		17,
+		'El Gato'
+	),
+	(
+		18,
+		'El Armadillo'
+	),
+	(
+		19,
+		'El Jaguar'
+	),
+	(
+		0,
+		'El Águila'
+	),
+	(
+		1,
+		'La Abeja'
+	),
+	(
+		2,
+		'El Pàjaro Carpintero'
+	),
+	(
+		3,
+		'El Tucán'
+	),
+	(
+		4,
+		'La Tortuga'
+	),
+	(
+		5,
+		'El Humano'
+	),
+	(
+		6,
+		'El Cocodrilo'
+	),
+	(
+		7,
+		'El Colibrí'
+	),
+	(
+		8,
+		'La Guacamaya'
+	),
+	(
+		9,
+		'La Araña'
+	),
+	(
+		10,
+		'La Serpiente'
+	),
+	(
+		11,
+		'El Búho'
+	),
+	(
+		12,
+		'El Venado'
+	),
+	(
+		13,
+		'El Conejo'
+	);
+
+ALTER TABLE `animal_guia` RENAME COLUMN `nombre` TO `animal`; 
 
 COMMIT;

@@ -7,6 +7,20 @@ $informacion = $conn->query("SELECT htmlCodigo,seccion,nombre FROM tiempomaya.pa
 $secciones = $conn->query("SELECT seccion FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' group by seccion  order by orden;");
 $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
 
+$hour = date('H');
+$fondo = '/img/FondoDia.jpg';
+if ($hour >= 6 && $hour < 12) 
+{
+    $fondo = '/img/FondoDia.jpg';
+} 
+elseif ($hour >= 12 && $hour < 18) 
+{
+    $fondo = '/img/FondoDia.jpg';
+} 
+else 
+{
+    $fondo = '/img/FondoNoche.jpg';
+}
 
 
 ?>
@@ -28,7 +42,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
 <?php include "../NavBar2.php" ?>
 
 <body>
-	<section id="inicio">
+	<section id="inicio"  style="background: url(<?php echo $fondo; ?>) top center;">
 		<div id="inicioContainer" class="inicio-container">
 
 			<?php echo "<h1>" . $pagina . " </h1>";

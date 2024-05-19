@@ -20,6 +20,22 @@ function getAudioSrc($nombre, $tabla) {
 	$audioPath = "../audio/$tabla/$nombre.m4a";
     return $audioPath;
 }
+
+$hour = date('H');
+$fondo = '/img/FondoDia.jpg';
+if ($hour >= 6 && $hour < 12) 
+{
+    $fondo = '/img/FondoDia.jpg';
+} 
+elseif ($hour >= 12 && $hour < 18) 
+{
+    $fondo = '/img/FondoDia.jpg';
+} 
+else 
+{
+    $fondo = '/img/FondoNoche.jpg';
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +57,7 @@ function getAudioSrc($nombre, $tabla) {
 <?php include "../NavBar2.php" ?>
 
 <body>
-    <section id="inicio">
+    <section id="inicio"  style="background: url(<?php echo $fondo; ?>) top center;">
         <div id="inicioContainer" class="inicio-container">
             <?php echo "<h1>" . $tabla . " </h1>"; ?>
             <a href='#informacion' class='btn-get-started'>Informacion</a>

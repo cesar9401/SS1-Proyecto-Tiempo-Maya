@@ -15,6 +15,8 @@ $energia = include 'backend/buscar/conseguir_energia_numero.php';
 $haab = include 'backend/buscar/conseguir_uinal_nombre.php';
 $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
 $cholquij = $nahual . " " . strval($energia);
+$nahuals = $nahual;
+$energias = $energia;
 
 // Función para obtener el animal guía basado en el nahual
 function getAnimalGuia($nahual, $conn) {
@@ -27,10 +29,22 @@ function getAnimalGuia($nahual, $conn) {
     }
 }
 
+function getEnergiaInfo ($Id, $conn) {
+    $query = $conn->query("SELECT nombre, significado FROM energia WHERE id = " . $Id);
+    if ($query) {
+        $row = mysqli_fetch_assoc($query);
+        return $row;
+    } else {
+        return "Error en la consulta: " . $conn->error;
+    }
+}
+
 
 
 // Obtiene el animal guía utilizando la función definida anteriormente
 $animalGuia = getAnimalGuia($nahual, $conn);
+$energiaInfo = getEnergiaInfo($energia, $conn);
+$animalGuias = $animalGuia;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,23 +102,54 @@ $animalGuia = getAnimalGuia($nahual, $conn);
                             </tbody>
                         </table>
                     </div>
-                    <div class="infografia-container">
-                        <div class="info-segmento">
-                            <img src=" " alt="Imagen del Nahual">
-							<h3>Nahual: <?php echo is_array($nahual) ? implode(", ", $nahual) : $nahual; ?></h3>
-                            <p>Energía: <?php echo is_array($energia) ? implode(", ", $energia) : $energia; ?></p>
-                            <p>Animal Guía: <?php echo is_array($animalGuia) ? implode(", ", $animalGuia) : $animalGuia; ?></p>
-                            <p>Haab: <?php echo is_array($haab) ? implode(", ", $haab) : $haab; ?></p>
-                            <p>Cholquij: <?php echo is_array($cholquij) ? implode(", ", $cholquij) : $cholquij; ?></p>
-                            <p>Cuenta Larga: <?php echo is_array($cuenta_larga) ? implode(", ", $cuenta_larga) : $cuenta_larga; ?></p>
-                        </div>
-                    </div>
-
+              
                 </div>
             </div>
+            
         </section>
+        <div class="infografia-container">
+                        <div class="info-segmento"
+                            style="background-color: rgba(255, 255, 255, 0.8); border-radius: 8px; padding: 20px; text-align: center;">
+                            <!-- Imagen del Nahual -->
+                            <img src="../img/nahual/<?php echo urlencode(str_replace("'", "", $nahuals)); ?>.png"
+                                alt="Imagen del Nahual">
+                            <!-- Imagen de la Energía -->
+                            <img src="../img/numeros/<?php echo urlencode($energias); ?>.png"
+                                alt="Imagen de la Energía">
+                            <h3>Nahual: <?php echo $nahuals; ?></h3>
+                            <p>Energía: <?php echo $energias; ?></p>
+                            <p>Animal Guía:
+                                <?php echo is_array($animalGuia) ? implode(", ", $animalGuia) : $animalGuia; ?></p>
+                            <p>Haab: <?php echo is_array($haab) ? implode(", ", $haab) : $haab; ?></p>
+                            <p>Cholquij: <?php echo is_array($cholquij) ? implode(", ", $cholquij) : $cholquij; ?></p>
+                            <p>Cuenta Larga:
+                                <?php echo is_array($cuenta_larga) ? implode(", ", $cuenta_larga) : $cuenta_larga; ?>
+                            </p>
+                            <p>Significado de la Energía: <?php echo $energiaInfo['significado']; ?></p>
+                            <!-- Imagen del Animal Guía -->
+                            <img src="../img/animales/<?php echo urlencode(str_replace(" ", "-", $animalGuias)); ?>.png"
+                                alt="Imagen del Animal Guía">
+                        </div>
+                        <button id="downloadButton">Descargar Infografía</button>
+
+                    </div>
+
     </div>
     <?php include "blocks/bloquesJs1.html" ?>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            html2canvas(document.querySelector(".info-segmento")).then(canvas => {
+                var link = document.createElement('a');
+                link.download = 'infografia.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            });
+        });
+    });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 </body>
 
 </html>

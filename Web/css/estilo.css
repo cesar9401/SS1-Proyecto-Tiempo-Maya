@@ -675,3 +675,50 @@ h1 {
   margin-bottom: 10px;
 }
 
+.infografia-container {
+  background: url('../img/fondo_maya.jpg') no-repeat center center; /* Imagen de fondo */
+  background-size: cover; /* Asegura que el fondo cubra completamente el div */
+  padding: 30px; /* Espacio dentro del div, ajusta según necesites */
+  border: 10px solid transparent; /* Espacio para el borde de imagen */
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); /* Sombra opcional */
+  position: relative; /* Posición relativa para el pseudoelemento del marco */
+}
+
+.infografia-container::before {
+  content: ''; /* Pseudoelemento para el marco */
+  position: absolute;
+  top: -10px; left: -10px; /* Posiciona el marco correctamente */
+  right: -10px; bottom: -10px;
+  border: 10px solid transparent; /* Tamaño del borde que mostrará la imagen */
+  border-image: url('../img/marco_maya.png') 30 round; /* Imagen de marco y cómo manejar las esquinas */
+  pointer-events: none; /* Asegura que no interfiera con clics */
+  z-index: -1; /* Mantiene el marco detrás del contenido */
+}
+
+.info-segmento {
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo ligeramente transparente para el contenido */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 20px; /* Espacio interno */
+}
+
+button {
+  background-color: #8a6d3b; /* botón con color inspirado en la tierra */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #3e2723; /* cambio de color al pasar el ratón por encima */
+}
+
+.info-segmento img:last-of-type {
+    width: 150px; /* Ajusta según la necesidad */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Asegura que la imagen no tenga elementos al lado */
+    margin: 0 auto; /* Centra la imagen en el div */
+}
+

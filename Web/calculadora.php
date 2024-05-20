@@ -86,11 +86,12 @@ if ($hour >= 6 && $hour < 12) {
                     <form action="#" method="GET">
                         <div class="mb-1">
                             <label for="fecha" class="form-label">Fecha</label>
-                            <input type="date" class="form-control" name="fecha" id="fecha" value="<?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?>">
+                            <input type="date" class="form-control" name="fecha" id="fecha"
+                                value="<?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?>">
                         </div>
                         <button type="submit" class="btn btn-get-started"><i class="far fa-clock"></i> Calcular</button>
                     </form>
-                    <div class="principal" >
+                    <div class="principal">
                         <table class="tabla-info">
                             <tbody>
                                 <tr>
@@ -118,26 +119,36 @@ if ($hour >= 6 && $hour < 12) {
 
         </section>
         <div class="infografia-container">
-            <div class="info-segmento" style="background-color: rgba(250, 250, 250, 0.95); padding: 20px; text-align: center;">
+            <div class="info-segmento"
+                style="background-color: rgba(250, 250, 250, 0.95); padding: 20px; text-align: center;">
                 <!-- Imagen del Nahual -->
-                <img src="../img/nahual/<?php echo urlencode(str_replace("'", "", $nahuals)); ?>.png" alt="Imagen del Nahual">
+                <img src="../img/nahual/<?php echo urlencode(str_replace("'", "", $nahuals)); ?>.png"
+                    alt="Imagen del Nahual">
                 <!-- Imagen de la Energía -->
                 <img src="../img/numeros/<?php echo urlencode($energias); ?>.png" alt="Imagen de la Energía">
                 <h3>Nahual: <?php echo $nahuals; ?></h3>
                 <div class="container-columna">
                     <div class="nahual-info">
-                        <p><i class='fas fa-arrow-right' style="font-size: 0.55rem;  padding-top:4px;"></i> <b>Energía </b> <?php echo $energias; ?></p>
-                        <p><i class='fas fa-arrow-right' style="font-size: 0.55rem;  padding-top:4px;"></i> <b>Haab </b> <?php echo is_array($haab) ? implode(", ", $haab) : $haab; ?></p>
-                        <p><i class='fas fa-arrow-right' style="font-size: 0.55rem;  padding-top:4px;"></i> <b>Cholquij </b> <?php echo is_array($cholquij) ? implode(", ", $cholquij) : $cholquij; ?></p>
-                        <p><i class='fas fa-arrow-right' style="font-size: 0.55rem;  padding-top:4px;"></i> <b>Cuenta larga </b>
+                        <p><i class='fas fa-arrow-right' style="font-size: 0.55rem;  padding-top:4px;"></i> <b>Energía
+                            </b> <?php echo $energias; ?></p>
+                        <p><i class='fas fa-arrow-right' style="font-size: 0.55rem;  padding-top:4px;"></i> <b>Haab </b>
+                            <?php echo is_array($haab) ? implode(", ", $haab) : $haab; ?></p>
+                        <p><i class='fas fa-arrow-right' style="font-size: 0.55rem;  padding-top:4px;"></i> <b>Cholquij
+                            </b> <?php echo is_array($cholquij) ? implode(", ", $cholquij) : $cholquij; ?></p>
+                        <p><i class='fas fa-arrow-right' style="font-size: 0.55rem;  padding-top:4px;"></i> <b>Cuenta
+                                larga </b>
                             <?php echo is_array($cuenta_larga) ? implode(", ", $cuenta_larga) : $cuenta_larga; ?>
                         </p>
                     </div>
                     <div class="guia-info">
                         <div class="guia-container">
                             <p style="font-size: 14px;">Animal Guía</p>
-                            <img class="animal-img" src="../img/animales/<?php echo urlencode(str_replace(" ", "-", $animalGuias)); ?>.png" alt="Imagen del Animal Guía">
-                            <p style="color: #16664d;"><b><?php echo is_array($animalGuia) ? implode(", ", $animalGuia) : $animalGuia; ?></b></p>
+                            <img class="animal-img"
+                                src="../img/animales/<?php echo urlencode(str_replace(" ", "-", $animalGuias)); ?>.png"
+                                alt="Imagen del Animal Guía">
+                            <p style="color: #16664d;">
+                                <b><?php echo is_array($animalGuia) ? implode(", ", $animalGuia) : $animalGuia; ?></b>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -149,27 +160,63 @@ if ($hour >= 6 && $hour < 12) {
                 </div>
                 <img class="" src="../img/logo-es.png" alt="logo">
             </div>
-            
+
         </div>
         <div class="boton-descargar">
             <button id="downloadButton">Descargar Infografía</button>
+
+        </div>
+        <div class="boton-descargar">
+            <button id="changeBackground">Cambiar Fondo</button>
         </div>
 
     </div>
     <?php include "blocks/bloquesJs1.html" ?>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById('downloadButton').addEventListener('click', function() {
-                html2canvas(document.querySelector(".infografia-container")).then(canvas => {
-                    var link = document.createElement('a');
-                    link.download = 'infografia.png';
-                    link.href = canvas.toDataURL('image/png');
-                    link.click();
-                });
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            html2canvas(document.querySelector(".infografia-container")).then(canvas => {
+                var link = document.createElement('a');
+                link.download = 'infografia.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
             });
         });
+    });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var backgrounds = [
+            '../img/pattern.jpg',
+            '../img/pattern2.jpg',
+            '../img/pattern3.jpg',
+            '../img/pattern4.jpg',
+            '../img/pattern5.jpg',
+            '../img/pattern6.jpg',
+            '../img/pattern7.jpg',
+            '../img/pattern8.jpg'
+        ];
+
+        var currentBackground = localStorage.getItem('backgroundIndex');
+        if (currentBackground === null) {
+            currentBackground = 0;
+        } else {
+            currentBackground = parseInt(currentBackground);
+        }
+
+        var container = document.querySelector('.infografia-container');
+        container.style.backgroundImage = 'url(' + backgrounds[currentBackground] + ')';
+
+        document.getElementById('changeBackground').addEventListener('click', function() {
+            currentBackground = (currentBackground + 1) % backgrounds.length;
+            container.style.backgroundImage = 'url(' + backgrounds[currentBackground] + ')';
+            localStorage.setItem('backgroundIndex', currentBackground);
+            location.reload();
+        });
+    });
+    </script>
 
 </body>
 

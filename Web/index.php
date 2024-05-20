@@ -81,6 +81,7 @@ $img2 = strtolower(str_replace("'", "", preg_replace("/([\']+|\w+) (\d+)/", '${1
 
 	<?php include "blocks/bloquesJs1.html" ?>
 	<script src="js/animation.js"></script>
+	<script src="js/changeBackground.js"></script>
 
 </body>
 

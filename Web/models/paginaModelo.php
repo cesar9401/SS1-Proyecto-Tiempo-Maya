@@ -6,9 +6,6 @@ $pagina = $_GET['pagina'];
 $informacion = $conn->query("SELECT htmlCodigo,seccion,nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' order by orden;");
 $secciones = $conn->query("SELECT seccion FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' group by seccion order by orden;");
 $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
-$elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
-
-
 
 ?>
 
@@ -59,7 +56,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
 				foreach ($elementos as $elemento) {
 					if ($elemento['nombre'] != 'Uayeb' && $elemento['nombre'] == $info['nombre']) {
 						$tabla = strtolower($elemento['nombre']);
-						$elementosEl = $conn->query("SELECT nombre FROM tiempo_maya." . $tabla . ";");
+						$elementosEl = $conn->query("SELECT nombre FROM tiempomaya." . $tabla . ";");
 						$stringPrint .= "<ul>";
 						foreach ($elementosEl as $el) {
 							if ($el['nombre'] == "Informacion") {
@@ -81,6 +78,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
 
 	<?php include "../blocks/bloquesJs1.html" ?>
 	<script src="../js/animation.js"></script>
+	<script src="../js/changeBackground.js"></script>
 
 </body>
 

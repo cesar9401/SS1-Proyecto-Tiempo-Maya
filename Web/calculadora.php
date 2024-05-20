@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php
+date_default_timezone_set('US/Central');
 include("backend/buscar/conseguir_cruz.php");
 
 $conn = include "conexion/conexion.php";
@@ -7,7 +8,6 @@ $conn = include "conexion/conexion.php";
 if (isset($_GET['fecha'])) {
 	$fecha_consultar = $_GET['fecha'];
 } else {
-	date_default_timezone_set('US/Central');
 	$fecha_consultar = date("Y-m-d");
 }
 
@@ -94,40 +94,40 @@ $animal = getAnimalGuia($nahual, $conn);
 				<h2>Infografía</h2>
 				<div class="infografia-grid">
 					<div>
-						<h1 class="infografia-text">Tu fuerza</h1>
+						<h3 class="infografia-text">Tu fuerza</h3>
 						<?php
 							echo "<img src=\"./img/numeros/$fuerza.png\" class='index-img'/>"
 						?>
 					</div>
 					<div>
-						<h1 class="infografia-text">Tu nahual</h1>
+						<h3 class="infografia-text">Tu nahual</h3>
 						<?php
 							echo "<img src=\"img/nahual/$nac_img.png\" alt=\"imagen de " . $nahual . "\" class='index-img' />"
 						?>
 					</div>
 					<div>
-						<h1 class="infografia-text">Fuerza en idioma maya</h1>
+						<h3 class="infografia-text">Fuerza en idioma maya</h3>
 						<?php
-							echo "<h2 class=\"infografia-text\">". $energia_info['nombre'] ."</h2>"
+							echo "<h4 class=\"infografia-text\">". $energia_info['nombre'] ."</h4>"
 						?>
 					</div>
 
 					<div>
-						<h1 class="infografia-text">Significado</h1>
+						<h3 class="infografia-text">Significado</h3>
 						<?php
-							echo "<h2 class=\"infografia-text\">". $nahual_significado ."</h2>"
+							echo "<h4 class=\"infografia-text\">". $nahual_significado ."</h4>"
 						?>
 					</div>
 					<div>
-						<h1 class="infografia-text">Capacidades</h1>
+						<h3 class="infografia-text">Capacidades</h3>
 						<?php
-							echo "<h2 class=\"infografia-text\">". $energia_info['significado'] ."</h2>"
+							echo "<h4 class=\"infografia-text\">". $energia_info['significado'] ."</h4>"
 						?>
 					</div>
 					<div>
-						<h1 class="infografia-text">Animal guía</h1>
+						<h3 class="infografia-text">Animal guía</h3>
 						<?php
-							echo "<h2 class=\"infografia-text\">". $animal ."</h2>"
+							echo "<h4 class=\"infografia-text\">". $animal ."</h4>"
 						?>
 					</div>
 				</div>
@@ -206,6 +206,7 @@ $animal = getAnimalGuia($nahual, $conn);
 
 	<?php include "blocks/bloquesJs1.html" ?>
 	<script src="js/animation.js"></script>
+	<script src="js/changeBackground.js"></script>
 
 </body>
 

@@ -86,6 +86,7 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nomb
 
 	<?php include "../blocks/bloquesJs.html" ?>
 	<script src="../js/animation.js"></script>
+	<script src="../js/changeBackground.js"></script>
 
 </body>
 

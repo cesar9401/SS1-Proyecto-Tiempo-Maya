@@ -2,14 +2,14 @@
 <?php
 $conn = include "conexion/conexion.php";
 
+date_default_timezone_set('US/Central');
+
 if (isset($_GET['fecha'])) {
     $fecha_consultar = $_GET['fecha'];
 } else {
-    date_default_timezone_set('US/Central');
     $fecha_consultar = date("Y-m-d");
 }
 
-// Suponemos que estas funciones devuelven exactamente el nombre del nahual y el número de energía como cadenas de texto.
 $nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
 $energia = include 'backend/buscar/conseguir_energia_numero.php';
 $haab = include 'backend/buscar/conseguir_uinal_nombre.php';
@@ -81,7 +81,7 @@ if ($hour >= 6 && $hour < 12) {
     <div>
         <section id="inicio" style="background: url(<?php echo $fondo; ?>) top center;">
             <div id="inicioContainer" class="inicio-container">
-                <div class='principal' style="width: 50%;">
+                <div class='principal'>
                     <h1>Calculadora</h1>
                     <form action="#" method="GET">
                         <div class="mb-1">
@@ -90,7 +90,7 @@ if ($hour >= 6 && $hour < 12) {
                         </div>
                         <button type="submit" class="btn btn-get-started"><i class="far fa-clock"></i> Calcular</button>
                     </form>
-                    <div class="principal" style="width:70%;">
+                    <div class="principal" >
                         <table class="tabla-info">
                             <tbody>
                                 <tr>
@@ -118,7 +118,7 @@ if ($hour >= 6 && $hour < 12) {
 
         </section>
         <div class="infografia-container">
-            <div class="info-segmento" style="background-color: rgba(211, 211, 211, 0.8); border-radius: 8px; padding: 20px; text-align: center;">
+            <div class="info-segmento" style="background-color: rgba(250, 250, 250, 0.95); padding: 20px; text-align: center;">
                 <!-- Imagen del Nahual -->
                 <img src="../img/nahual/<?php echo urlencode(str_replace("'", "", $nahuals)); ?>.png" alt="Imagen del Nahual">
                 <!-- Imagen de la Energía -->
@@ -134,20 +134,25 @@ if ($hour >= 6 && $hour < 12) {
                         </p>
                     </div>
                     <div class="guia-info">
-                        <p style="font-size: 14px;">Animal Guía</p>
-                        <img class="animal-img" src="../img/animales/<?php echo urlencode(str_replace(" ", "-", $animalGuias)); ?>.png" alt="Imagen del Animal Guía">
-                        <p style="color: #16664d;"><b><?php echo is_array($animalGuia) ? implode(", ", $animalGuia) : $animalGuia; ?></b></p>
+                        <div class="guia-container">
+                            <p style="font-size: 14px;">Animal Guía</p>
+                            <img class="animal-img" src="../img/animales/<?php echo urlencode(str_replace(" ", "-", $animalGuias)); ?>.png" alt="Imagen del Animal Guía">
+                            <p style="color: #16664d;"><b><?php echo is_array($animalGuia) ? implode(", ", $animalGuia) : $animalGuia; ?></b></p>
+                        </div>
                     </div>
                 </div>
                 <div class="energia-info">
-                    <h5 style="color:dimgrey;">
+                    <h5 style="color:dimgrey; font-size: medium; padding-top:4px;">
                         Significado de la Energía:
                     </h5>
                     <?php echo $energiaInfo['significado']; ?>
                 </div>
+                <img class="" src="../img/logo-es.png" alt="logo">
             </div>
+            
+        </div>
+        <div class="boton-descargar">
             <button id="downloadButton">Descargar Infografía</button>
-
         </div>
 
     </div>

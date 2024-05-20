@@ -50,7 +50,7 @@ else
 <body>
 
 	<?php include "NavBar.php" ?>
-	<div>
+	<div style="height: auto;">
 		<section id="inicio" style="background: url(<?php echo $fondo; ?>) top center;">
 			<div id="inicioContainer" class="inicio-container">
 				<div class="row">

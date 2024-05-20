@@ -49,7 +49,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 									<button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Uinal
 									</button>
-									<a class="nav-link" href="#" style="font-size: 13px;">Uinales</a>
+									<a class="nav-link" href="models/paginaModeloElemento.php?elemento=uinal" style="font-size: 13px;">Uinales</a>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 										<div div style="width: 200px; height: 400px; overflow-y: scroll;">
 											<?php if (is_array($uinalesNav) || is_object($uinalesNav)) {
@@ -73,7 +73,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 									<button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Nahual
 									</button>
-									<a class="nav-link" href="#" style="font-size: 13px;">Nahuales</a>
+									<a class="nav-link" href="models/paginaModeloElemento.php?elemento=nahual" style="font-size: 13px;">Nahuales</a>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 										<div div style="width: 200px; height: 400px; overflow-y: scroll;">
 											<?php if (is_array($nahualesNav) || is_object($nahualesNav)) {
@@ -88,7 +88,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 									<button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Energia
 									</button>
-									<a class="nav-link" href="#" style="font-size: 13px;">Energias</a>
+									<a class="nav-link" href="models/paginaModeloElemento.php?elemento=energia" style="font-size: 13px;">Energias</a>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 										<div div style="width: 200px; height:400px; overflow-y: scroll;">
 											<?php if (is_array($energiasNav) || is_object($energiasNav)) {

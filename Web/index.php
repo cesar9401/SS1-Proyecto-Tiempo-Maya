@@ -45,19 +45,19 @@ $img2 = strtolower(str_replace("'", "", preg_replace("/([\']+|\w+) (\d+)/", '${1
 				</div>
 
 				<div class="row my-4">
-					<div class="col">
+					<div class="col index-col">
 						<?php
 							echo "<img src='img/uinal/$img1.svg' alt='imagen de $img1' class='index-img' />";
 							echo "<h4 class='text-white text-center mt-4 info'>$haab</h4>";
 						?>
 					</div>
-					<div class="col">
+					<div class="col index-col">
 						<?php
 							echo "<img src='img/nahual/$img2.png' alt='imagen de $img2' class='index-img' />";
 							echo "<h4 class='text-white text-center mt-4 info'>$cholquij</h4>";
 						?>
 					</div>
-					<div class="col">
+					<div class="col index-col">
 						<?php
 							echo "<img src='img/calendario.png' alt='imagen de calendario' class='index-img' />";
 							echo "<h4 class='text-white text-center mt-4 info'>$cuenta_larga</h4>";

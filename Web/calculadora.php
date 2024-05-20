@@ -38,14 +38,14 @@ $animal = getAnimalGuia($nahual, $conn);
 <head>
 	<meta charset="utf-8">
 	<link rel="icon" href="img/piramide-maya.png">
-	<title>Tiempo Maya</title>
+	<title>Tiempo Maya - Calculadora</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<?php include "blocks/bloquesCss.html" ?>
 	<link rel="stylesheet" href="css/estilo.css?v=<?php echo (rand()); ?>" />
 	<link rel="stylesheet" href="css/estiloAdmin.css?v=<?php echo (rand()); ?>" />
 	<link rel="stylesheet" href="css/animation.css" />
 	<link rel="stylesheet" href="./css/calculadora.css" />
-	<!-- <link rel="stylesheet" href="css/index.css?v=<?php echo (rand()); ?>" /> -->
+	<link rel="stylesheet" href="css/index.css?v=<?php echo (rand()); ?>" />
 </head>
 
 <body>

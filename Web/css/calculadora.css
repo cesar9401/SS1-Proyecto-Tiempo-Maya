@@ -1,8 +1,7 @@
 
 #formulario {
-    /* background: rgba(63, 64, 66, 0.7); */
+    background: rgba(63, 64, 66, 0.7);
     margin-top: 50px;
-    background: rgba(101, 103, 105, 0.7);
     transition: 0.5s;
     width: 50%;
 }

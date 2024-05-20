@@ -2,6 +2,7 @@
 <?php
 date_default_timezone_set('US/Central');
 include("backend/buscar/conseguir_cruz.php");
+include("backend/buscar/conseguir_infografia.php");
 
 $conn = include "conexion/conexion.php";
 

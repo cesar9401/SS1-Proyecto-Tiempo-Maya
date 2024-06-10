@@ -8,11 +8,20 @@ session_start(); ?>
 // include('../backend/buscar/get_src.php');
 $conn = include '../conexion/conexion.php';
 $tabla = $_GET['elemento'];
+<<<<<<< Updated upstream
 $table = strtolower($tabla);
 $fmt = $tabla == "uinal" ? "svg" : "png";
 $datos = $conn->query("SELECT nombre,significado,htmlCodigo FROM tiempomaya." . $table . ";");
 $elementos = $datos;
 $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nombre='" . $tabla . "';");
+=======
+$table =strtolower($tabla);
+$datos = $conn->query("SELECT nombre,significado,htmlCodigo FROM tiempomaya." . $table . ";");
+$elementos = $datos;
+$informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nombre='" . $tabla . "';");
+
+
+>>>>>>> Stashed changes
 
 ?>
 

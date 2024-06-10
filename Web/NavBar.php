@@ -54,7 +54,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 										<div div style="width: 200px; height: 400px; overflow-y: scroll;">
 											<?php if (is_array($uinalesNav) || is_object($uinalesNav)) {
 												foreach ($uinalesNav as $uinal) {
-													echo getLi($uinal, "img/uinal", "svg", "models/paginaModeloElemento.php?elemento=uinal#");
+													echo getLi($uinal, "img/uinal", "png", "models/paginaModeloElemento.php?elemento=uinal#");
 												}
 											} ?>
 									</ul>
@@ -78,7 +78,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 										<div div style="width: 200px; height: 400px; overflow-y: scroll;">
 											<?php if (is_array($nahualesNav) || is_object($nahualesNav)) {
 												foreach ($nahualesNav as $nahual) {
-													echo getLi($nahual, "img/nahual", "png", "models/paginaModeloElemento.php?elemento=nahual#");
+													echo getLi($nahual, "img/nahual", "png", "../models/paginaModeloElemento.php?elemento=nahual#");
 												}
 											} ?>
 										</div>
@@ -93,7 +93,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 										<div div style="width: 200px; height:400px; overflow-y: scroll;">
 											<?php if (is_array($energiasNav) || is_object($energiasNav)) {
 												foreach ($energiasNav as $energia) {
-													echo getLi($energia, "img/energia", "png", "models/paginaModeloElemento.php?elemento=energia#");
+													echo getLi($energia, "img/energia", "png", "../models/paginaModeloElemento.php?elemento=energia#");
 												}
 											} ?>
 										</div>

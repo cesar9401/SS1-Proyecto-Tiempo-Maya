@@ -1,6 +1,7 @@
 
 #formulario {
     background: rgba(63, 64, 66, 0.7);
+    margin-top: 50px;
     transition: 0.5s;
     width: 50%;
 }
@@ -53,8 +54,10 @@
     .form-label{
         font-size: 15px;
     }
+
     #formulario{
-        width: 40%;
+
+        width: 100%;
     }
     
   }
@@ -69,3 +72,127 @@
         margin-top: 75px;
     }
 }
+
+.info-container {
+    margin: 25px;
+    height: 325px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+    gap: 25px;
+    overflow: auto;
+}
+
+.row-img {
+    margin-top: 50px;
+    width: 5vh;
+}
+
+#details {
+    margin: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.infografia-grid {
+    position: relative; /* Necesario para posicionar el pseudoelemento correctamente */
+    width: 100%; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Ajusta según tus necesidades */
+    overflow: hidden; /* Para asegurarte de que el pseudoelemento no sobresalga */
+    padding: 50px; /* Ajusta el padding según tus necesidades */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 25px;
+}
+
+.infografia-grid::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/calendarioHaabGrande.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.65;
+    z-index: 1;
+}
+
+.infografia-grid > div {
+    position: relative;
+    z-index: 2;
+}
+
+.infografia-grid > div > h3,h4 {
+    position: relative;
+    z-index: 2;
+    color: black;
+    font-weight: bold;
+}
+
+.cruz-grid {
+    display: grid;
+    margin: 25px;
+    grid-template-columns: repeat(3, minmax(min(100%, 250px), 1fr));
+    grid-template-rows: repeat(3, minmax(min(100%, 250px), 1fr));
+    gap: 25px;
+}
+
+.figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cruz-nacimiento {
+    /* background-color: red; */
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+/* .cruz-nacimiento:hover {
+    background-image: linear-gradient(to bottom, #4121d1, #2ae243be);
+} */
+
+.cruz-concepcion {
+    /* background-color: red; */
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+/* 
+.cruz-concepcion:hover {
+    background-image: linear-gradient(to top, #4121d1, #ffffff);
+} */
+
+.cruz-destino {
+    /* background-color: red; */
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+/* .cruz-destino:hover {
+    background-image: linear-gradient(to bottom, #2ae243, #ceec24dc);
+} */
+
+.cruz-izquierdo {
+    /* background-color: red; */
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+
+/* .cruz-izquierdo:hover {
+    background-image: linear-gradient(to left, #4121d1, #000000c7);
+} */
+
+.cruz-derecho {
+    /* background-color: red; */
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+
+/* .cruz-derecho:hover {
+    background-image: linear-gradient(to right, #4121d1, #cc2828d3);
+} */

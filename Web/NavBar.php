@@ -33,7 +33,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 									<button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Kin
 									</button>
-									<a class="nav-link" href="#" style="font-size: 13px;">Kines</a>
+									<a class="nav-link" href="models/paginaModeloElemento.php?elemento=kin" style="font-size: 13px;">Kines</a>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 										<div div style="width: 200px; height: 400px; overflow-y: scroll;">
 											<?php
@@ -49,12 +49,12 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 									<button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Uinal
 									</button>
-									<a class="nav-link" href="#" style="font-size: 13px;">Uinales</a>
+									<a class="nav-link" href="models/paginaModeloElemento.php?elemento=uinal" style="font-size: 13px;">Uinales</a>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 										<div div style="width: 200px; height: 400px; overflow-y: scroll;">
 											<?php if (is_array($uinalesNav) || is_object($uinalesNav)) {
 												foreach ($uinalesNav as $uinal) {
-													echo getLi($uinal, "img/uinal", "svg", "models/paginaModeloElemento.php?elemento=uinal#");
+													echo getLi($uinal, "img/uinal", "png", "models/paginaModeloElemento.php?elemento=uinal#");
 												}
 											} ?>
 									</ul>
@@ -73,12 +73,12 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 									<button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Nahual
 									</button>
-									<a class="nav-link" href="#" style="font-size: 13px;">Nahuales</a>
+									<a class="nav-link" href="models/paginaModeloElemento.php?elemento=nahual" style="font-size: 13px;">Nahuales</a>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 										<div div style="width: 200px; height: 400px; overflow-y: scroll;">
 											<?php if (is_array($nahualesNav) || is_object($nahualesNav)) {
 												foreach ($nahualesNav as $nahual) {
-													echo getLi($nahual, "img/nahual", "png", "models/paginaModeloElemento.php?elemento=nahual#");
+													echo getLi($nahual, "img/nahual", "png", "../models/paginaModeloElemento.php?elemento=nahual#");
 												}
 											} ?>
 										</div>
@@ -88,12 +88,12 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 									<button type="button" style="opacity: 0; height: 0;" class="nav-link" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Energia
 									</button>
-									<a class="nav-link" href="#" style="font-size: 13px;">Energias</a>
+									<a class="nav-link" href="models/paginaModeloElemento.php?elemento=energia" style="font-size: 13px;">Energias</a>
 									<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 										<div div style="width: 200px; height:400px; overflow-y: scroll;">
 											<?php if (is_array($energiasNav) || is_object($energiasNav)) {
 												foreach ($energiasNav as $energia) {
-													echo getLi($energia, "img/energia", "png", "models/paginaModeloElemento.php?elemento=energia#");
+													echo getLi($energia, "img/energia", "png", "../models/paginaModeloElemento.php?elemento=energia#");
 												}
 											} ?>
 										</div>

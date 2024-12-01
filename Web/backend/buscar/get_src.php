@@ -20,5 +20,6 @@ function getImgSrc($name, $folder, $format) {
 }
 
 function getId($name) {
+	$name = trim($name);
 	return strtolower(str_replace("'", "", $name));
 }
